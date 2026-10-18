@@ -1,2 +1,3 @@
 # comicfactory
-Official site: https://comicfactory.app
+
+Official website: [comicfactory.app](https://comicfactory.app)
