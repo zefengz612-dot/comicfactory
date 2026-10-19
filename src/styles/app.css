@@ -1,0 +1,168 @@
+@import "tailwindcss" source("../");
+
+@theme inline {
+  --font-sans: "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --color-card: var(--paper);
+  --color-primary: var(--accent);
+  --color-primary-foreground: #f7fffd;
+  --color-secondary: var(--paper-2);
+  --color-secondary-foreground: var(--ink);
+  --color-muted: var(--paper-2);
+  --color-muted-foreground: var(--ink-muted);
+  --color-accent: #e7f6f3;
+  --color-accent-foreground: var(--ink);
+  --color-destructive: var(--accent-hot);
+  --color-destructive-foreground: #fff;
+  --color-border: var(--rule);
+  --color-input: var(--rule);
+  --color-ring: var(--accent);
+  --color-popover: var(--paper);
+  --color-popover-foreground: var(--ink);
+}
+
+:root {
+  --ink: #121820;
+  --ink-muted: #4a5563;
+  --paper: #eef2f6;
+  --paper-2: #e4ebf2;
+  --paper-muted: #c5ced8;
+  --rule: rgba(18, 24, 32, 0.12);
+  --accent: #0b7a6b;
+  --accent-deep: #086357;
+  --accent-hot: #e85d4c;
+  --gold: #f0c35a;
+  color-scheme: light;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+body {
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.panel-shadow {
+  box-shadow: 6px 8px 0 rgba(18, 24, 32, 0.08);
+}
+
+.ink-frame {
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.landing-root {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.landing-display {
+  letter-spacing: 0.02em;
+  line-height: 0.98;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+.landing-display,
+.landing-display-quiet {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.landing-display-quiet {
+  letter-spacing: 0.04em;
+}
+
+.landing-hero-copy {
+  animation: landing-rise 0.7s ease-out both;
+  position: relative;
+  z-index: 1;
+}
+
+.landing-hero-art {
+  animation: landing-rise 0.85s ease-out both;
+}
+
+.hero-comic-bleed {
+  animation: hero-comic-drift 18s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+.landing-hero-scrim {
+  pointer-events: none;
+  background:
+    linear-gradient(105deg, rgba(7, 19, 31, 0.92), rgba(7, 19, 31, 0.78) 32%, rgba(7, 19, 31, 0.28) 58%, rgba(7, 19, 31, 0.08)),
+    linear-gradient(0deg, rgba(7, 19, 31, 0.72) 0, transparent 42%);
+}
+
+.landing-cta-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 4px 4px 0 rgba(18, 24, 32, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-cta-primary:hover {
+  background: #086357;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 rgba(18, 24, 32, 0.22);
+}
+
+.landing-cta-on-dark {
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-cta-on-dark:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.28);
+}
+
+@keyframes hero-comic-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes landing-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-hero-scrim {
+    background: linear-gradient(0deg, rgba(7, 19, 31, 0.94) 0, rgba(7, 19, 31, 0.72) 38%, rgba(7, 19, 31, 0.28) 68%, rgba(7, 19, 31, 0.12));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-comic-bleed,
+  .landing-hero-art,
+  .landing-hero-copy {
+    animation: none;
+  }
+}

@@ -1,0 +1,12 @@
+node_modules
+dist
+.output
+.wrangler
+agent-tools
+.dev.vars
+.env
+.env.local
+.env.*.local
+*.tsbuildinfo
+.DS_Store
+.vinxi
